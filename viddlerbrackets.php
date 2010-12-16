@@ -1,19 +1,20 @@
-﻿<?php
+<?php
 /*
 Plugin Name: Viddler Brackets
 Plugin URI: http://silentblue.net/
 Description: Insert Viddler videos in post using bracket method. Enables Viddler blogging to standalone wordpress setups.
+Author: Gregory Lam
+Version: 1.1.1
+Author URI: http://gregorylam.ca
+*/
 
+/*
 Mimics WordPress.com's functionality with YouTube shortcodes. Adjust $width and $height variables below to taste. 
 Based on the Quicktime Posting plugin by Shawn Van Every and YouTube Brackets by Robert Buzink ( http://www.robertbuzink.nl/journal/2006/11/23/youtube-brackets-wordpress-plugin/ )
 
 Very no frills. No UI settings to configure. To embed Viddler videos, enclose the video URL in square brackets and Bob's your uncle.
 
 License is GPLv3.
-
-Author: Gregory Lam
-Version: 1.1.1
-Author URI: http://gregorylam.ca
 */ 
 
 $stag = "[viddler id=";
@@ -36,9 +37,9 @@ function quicktime_post($the_content)
         if (sizeof($the_args) == 1)
         {
             $file = $tagargs;
-			// DEFINE YOUR VIDEO DIMENSIONS HERE. 
-			$width = 545;														 // Default width is 545px for widscreen SDTV content
-			$height = 349;														 // Default height is 349px for widescreen SDTV content
+			/* DEFINE YOUR VIDEO DIMENSIONS HERE.  */
+			$width = 545;														 /* Default width is 545px for widscreen SDTV content */
+			$height = 349;														 /* Default height is 349px for widescreen SDTV content */
             $tags = generate_tags($file,$width,$height);
             $new_content = substr($the_content,0,$spos);
             $new_content .= $tags;
